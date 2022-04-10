@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>{{title}}</title>
+
+</head>
+<body>
+    
+<nav class="navbar navbar-expand-lg navbar-light bg-secondary">
+  <div class="container-fluid">
+
+    <div class="m-auto" id="navbarNav">
+      <ul class="navbar-nav">
+        {{#unless session}}
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-5" aria-current="page" href="/admin">Admin</a>
+          </li>
+        {{/unless}}
+     
+        {{#ifEquals session "admin"}}
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-5" aria-current="page" href="/">Home</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5" href="/truck/add">Add Truck</a>
+          </li>
+          
+          
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5" href="/parcel/add">Add Parcel</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5" href="/truck/all_trucks">All Trucks</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5" href="/parcel/all_parcels">All Parcels</a>
+          </li>
+        {{/ifEquals}}
+        
+        {{#ifEquals user "driver"}}
+ 
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-5" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active fw-bold fs-5" aria-current="page" href="/truck/view_truck/?id={{session}}">My Truck</a>
+          </li>
+        {{/ifEquals}}
+
+        {{#unless session}}
+          <li class="nav-item">
+            <a class="nav-link fw-bold fs-5" href="/truck/truck_driver">Truck Driver</a>
+          </li>
+        {{/unless}}
+        {{#if session}}
+            <li class="nav-item">
+               <a class="nav-link fw-bold fs-5" href="/truck/sign_out">sign out</a>
+            </li>
+          
+        {{/if}}
+
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{{{body}}}
+</body>
+</html>
+

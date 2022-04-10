@@ -1,0 +1,24 @@
+<div class="container pt-5">
+    <div class="m-auto w-75">
+        <table class="table table-dark table-striped">
+            <tr>
+                <td>Truck id</td>
+                <td>name</td>
+                <td>weight</td>
+                <td>num of parcels</td>
+                <td>actions</td>
+            </tr>
+            {{#each trucks }}
+                <tr>
+                    <td>{{this.truck_id}} </td>
+                    <td>{{this.name}}  </td>
+                    <td>{{this.weight}} kg  </td>
+                    <td>{{this.num}} parcel  </td>
+                    <td><a href="/truck/view_truck/?id={{this.truck_id}}"><button class="btn bg-success">view</button> </a> </td>
+                </tr>
+            {{/each}}
+        </table>
+    </div>
+</div>
+
+

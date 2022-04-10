@@ -1,0 +1,16 @@
+<div class="d-flex mt-5">
+    {{#each parcels}}
+        <div class="card text-center m-4" style="width: 18rem;">
+        <div class="card-body">
+            <h4 class="card-title">Parcel</h4>
+            <h5 class="card-subtitle mb-2 text-muted">{{this.name}}</h5>
+            <p class="card-text">{{this.details}}.</p>
+            <h6>weight:{{this.weight}}</h6>
+            <button class="card-link btn btn-success"><a href="/truck/view_truck/?parcel_id={{this.parcel_id}}&id={{this.truck_id}}" class="card-link text-decoration-none text-dark">arrived</a></button>
+        </div>
+        </div>
+    {{/each}}
+</div>
+
+<div class="text-center"><button class="btn btn-danger "> <a href="/" class="fs-5 text-decoration-none text-dark">Back</a></button></div>
+
